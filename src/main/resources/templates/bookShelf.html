@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <title>Bookshelf</title>
+</head>
+<body>
+<h1>Bookshelf</h1>
+<div>
+    <h2>Available Books</h2>
+    <div th:if="${books.isEmpty()}">
+        <p>No books available!</p>
+    </div>
+    <div th:unless="${books.isEmpty()}">
+        <ul>
+            <li th:each="book : ${books}">
+                <h3 th:text="${book.name}"></h3>
+                <p>Author: <span th:text="${book.author}"></span></p>
+                <p>Genre: <span th:text="${book.genre}"></span></p>
+                <p>Cost: $<span th:text="${book.cost}"></span></p>
+                <p>Release Date: <span th:text="${book.date}"></span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

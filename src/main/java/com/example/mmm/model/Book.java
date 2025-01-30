@@ -1,7 +1,7 @@
 package com.example.mmm.model;
 
 import jakarta.persistence.*;
-import  java.time.LocalDate;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "books")
@@ -11,41 +11,29 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    public int cost;
+
+    private int cost;
 
     @Column(nullable = false)
-    public String genre;
+    private String genre;
 
     @Column(nullable = false)
-    public String author;
+    private String author;
 
-    @Column(name ="come_up_date")
-    public LocalDate date;
+    @Column(name = "come_up_date", nullable = false)
+    private LocalDate date = LocalDate.now();
 
-    public Book(){}
-
-    public int getCost() {
-        return cost;
-    }
+    public Book() {}
 
     public int getId() {
         return id;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getGenre() {
-        return genre;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -56,25 +44,39 @@ public class Book {
         this.name = name;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public int getCost() {
+        return cost;
     }
 
     public void setCost(int cost) {
+        if(cost < 0){
+            throw new IllegalArgumentException("positive cost expected");
+        }
         this.cost = cost;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public String getGenre() {
+        return genre;
     }
 
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getAuthor() {
+        return author;
     }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
 }
