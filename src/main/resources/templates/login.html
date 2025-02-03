@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Link to your CSS file (Thymeleaf dynamic URL resolution) -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>DBS</title>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form>
+            <div class="social-container">
+                <h1>Create Account</h1>
+
+                <!-- Icons using Font Awesome -->
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-vk"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <span>Or use your Email</span>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Sign up</button>
+        </form>
+    </div>
+
+    <div class="form-container sign-in">
+        <form>
+            <div class="social-container">
+                <h1>Sign in</h1>
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-vk"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <span>Or use your Email</span>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <a href="#">Forgot your password?</a>
+            <button>Sign in</button>
+        </form>
+    </div>
+
+    <div class="toggle-container">
+        <div class="toggle-panel-left">
+            <h1>Welcome back</h1>
+            <p>Enter your personal details to use all of the site's features</p>
+            <button class="hidden" id="login">Log In</button>
+        </div>
+
+        <div class="toggle-panel-right">
+            <h1>Wazzup</h1>
+            <p>Please enter your email and password so we can proceed</p>
+            <button class="hidden" id="sign-up">Sign up</button>
+        </div>
+    </div>
+</div>
+
+<!-- Link to your JavaScript file (Thymeleaf dynamic URL resolution) -->
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
