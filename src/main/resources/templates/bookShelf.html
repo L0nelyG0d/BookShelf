@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html xmlns:th="http://www.thymeleaf.org">
-        <head>
-        <title>Bookshelf</title>
+    <title>Bookshelf</title>
 </head>
 <body>
 <h1>Bookshelf</h1>
 <div>
     <h2>Available Books</h2>
+
+    <!-- Display message if there are no books -->
     <div th:if="${books.isEmpty()}">
         <p>No books available!</p>
     </div>
+
+    <!-- Display books list if books are available -->
     <div th:unless="${books.isEmpty()}">
         <ul>
             <li th:each="book : ${books}">
@@ -26,10 +27,5 @@
         </ul>
     </div>
 </div>
-</body>
-</html></title>
-</head>
-<body>
-
 </body>
 </html>

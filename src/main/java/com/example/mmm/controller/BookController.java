@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/bookShelf")
+@RequestMapping("/bookshelf")
 public class BookController {
 
     private final BookService bookService;
@@ -24,6 +24,6 @@ public class BookController {
         List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
 
-        return "bookShelf";
+        return "home";
     }
 }

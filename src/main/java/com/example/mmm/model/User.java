@@ -15,13 +15,12 @@ public class User {
     @Column(nullable = false)
     private String username;
 
-
-
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "sign_up_date", nullable = false)
-    private LocalDate date;
+    @Column(nullable = false)
+    private String email;
+
 
     public int getId(){
         return id;
@@ -29,6 +28,10 @@ public class User {
 
     public void setId(int id){
         this.id = id;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
     }
 
     public String getUsername(){
@@ -44,15 +47,9 @@ public class User {
         return password;
     }
 
-    public void setPassword(){
+    public void setPassword(String password){
         this.password = password;
     }
 
-    public LocalDate getDate(){
-        return date;
-    }
 
-    public void setDate(LocalDate date){
-        this.date = date;
-    }
 }

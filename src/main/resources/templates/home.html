@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+
+    <title>Home</title>
+</head>
+<body>
+
+<div class="header">
+    <h1>My Mom's Future Store</h1>
+
+    <div class="top-right-links">
+        <a th:href="@{/register}">Register</a>
+        <a th:href="@{/login}">Login</a>
+    </div>
+</div>
+
+<div class="main-part">
+    <h2>Books In Collection</h2>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Genre</th>
+            <th>Author</th>
+            <th>Release Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.cost}"></td>
+            <td th:text="${book.genre}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.date}"></td>  <!-- Ensure the field is 'date' in Java -->
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
