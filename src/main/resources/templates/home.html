@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" th:href="@{/css/home.css}">
-
     <title>Home</title>
 </head>
 <body>
 
 <div class="header">
+    <div class="top-left-button">
+        <button class="category-btn" onclick="toggleCategoryInput()">Category</button>
+        <form th:action="@{/books}" method="get" id="categoryForm">
+            <input type="text" id="categoryInput" name="genre" placeholder="Enter genre..."
+                   onkeypress="filterByCategory(event)" hidden/>
+        </form>
+    </div>
+
     <h1>My Mom's Future Store</h1>
 
     <div class="top-right-links">
@@ -19,32 +26,33 @@
     </div>
 </div>
 
-<div class="main-part">
-    <h2>Books In Collection</h2>
+<h2>Books In Collection</h2>
 
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Cost</th>
-            <th>Genre</th>
-            <th>Author</th>
-            <th>Release Date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="book : ${books}">
-            <td th:text="${book.id}"></td>
-            <td th:text="${book.name}"></td>
-            <td th:text="${book.cost}"></td>
-            <td th:text="${book.genre}"></td>
-            <td th:text="${book.author}"></td>
-            <td th:text="${book.date}"></td>  <!-- Ensure the field is 'date' in Java -->
-        </tr>
-        </tbody>
-    </table>
+<div class="book-container">
+    <div th:each="book : ${books}" class="book-card">
+        <img src="default-book.png" alt="Book Image" class="book-image"/>
+        <h3 th:text="${book.name}"></h3>
+        <p th:text="${book.cost}"></p>
+        <p th:text="${book.author}"></p>
+    </div>
 </div>
+
+<script>
+    function toggleCategoryInput() {
+        const inputField = document.getElementById("categoryInput");
+        inputField.hidden = !inputField.hidden;
+        if (!inputField.hidden) {
+            inputField.focus();
+        }
+    }
+
+    function filterByCategory(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("categoryForm").submit();
+        }
+    }
+</script>
 
 </body>
 </html>

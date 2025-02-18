@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"> <!-- Link to CSS -->
+</head>
+<body>
+
+<div class="top-left-links">
+    <button class="category-btn" onclick="toggleDropdown()">Category</button>
+    <div class="dropdown-content" id="categoryDropdown" th:each="category : ${categories}">
+        <a th:href="@{/category/{id}(id=${category.id})}" th:text="${category.name}"></a>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown() {
+        var dropdown = document.getElementById("categoryDropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>
